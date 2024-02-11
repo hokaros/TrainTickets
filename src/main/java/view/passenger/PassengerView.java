@@ -2,6 +2,7 @@ package view.passenger;
 
 import entity.Person;
 import repository.PersonRepository;
+import view.ViewRouter;
 
 import java.util.Scanner;
 
@@ -19,63 +20,46 @@ public class PassengerView {
         System.out.println("\n\n<<Widok pasażera>>");
 
         while(true) {
-            boolean shouldExit = false;
+            boolean shouldStay = false;
 
             if(loggedPassenger == null) {
-                shouldExit = showNotLoggedPanel();
+                shouldStay = showNotLoggedPanel();
             }
             else {
-                shouldExit = showPassengerMenu();
+                shouldStay = showPassengerMenu();
             }
 
-            if(shouldExit)
+            if(!shouldStay)
                 break;
         }
     }
 
     private boolean showNotLoggedPanel() {
-        System.out.println("1. Zaloguj się");
-        System.out.println("2. Zarejestruj się");
-        System.out.println("3. Wyjdź");
+        ViewRouter viewRouter = new ViewRouter();
 
-        Scanner scanner = new Scanner(System.in);
-        String choice = scanner.nextLine();
-        if(choice.equals("1")) {
-            // TODO: logowanie
-        }
-        else if(choice.equals("2")) {
+        viewRouter.addOption("Zaloguj się", () -> {
+            System.out.println("TODO: logowanie"); // TODO: logowanie
+        });
+
+        viewRouter.addOption("Zarejestruj się", () -> {
             RegistrationView registrationView = new RegistrationView(personRepository);
             loggedPassenger = registrationView.run();
-        }
-        else if(choice.equals("3")) {
-            return false;
-        }
-        else {
-            System.out.println("Niepoprawna opcja");
-        }
+        });
 
-        return true;
+        return viewRouter.run();
     }
 
     private boolean showPassengerMenu() {
-        System.out.println("1. Moje bilety");
-        System.out.println("2. Szukaj kursu");
+        ViewRouter viewRouter = new ViewRouter();
 
-        Scanner scanner = new Scanner(System.in);
-        String choice = scanner.nextLine();
-        if(choice.equals("1")) {
-            // TODO: moje bilety
-        }
-        else if(choice.equals("2")) {
-            // TODO: szukaj kursu
-        }
-        else if(choice.equals("3")) {
-            return false;
-        }
-        else {
-            System.out.println("Niepoprawna opcja");
-        }
+        viewRouter.addOption("Moje bilety", () -> {
+            System.out.println("TODO: moje bilety"); // TODO: moje bilety
+        });
 
-        return true;
+        viewRouter.addOption("Szukaj kursu", () -> {
+            System.out.println("TODO: szukaj kursu"); // TODO: szukaj kursu
+        });
+
+        return viewRouter.run();
     }
 }
