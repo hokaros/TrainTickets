@@ -31,6 +31,9 @@ public class ViewRouter {
                     options.get(chosenOptionNumber - 1).function.run();
                     return true;
                 }
+                else {
+                    System.out.println("Niepoprawna opcja");
+                }
             }
             catch(NumberFormatException e) {
                 System.out.println("Niepoprawna opcja");

@@ -1,6 +1,5 @@
 package view.planner;
 
-import repository.PersonRepository;
 import repository.RepositoryCollection;
 import view.ViewRouter;
 
@@ -16,11 +15,21 @@ public class CoursePlannerView {
         System.out.println("\n\n<<Widok planisty>>");
 
         ViewRouter router = new ViewRouter();
+
         router.addOption("Dodaj stację", () -> {
             AddStationView addStationView = new AddStationView(repositories.getStationRepository());
             addStationView.run();
         });
 
+        router.addOption("Dodaj pociąg", () -> {
+            AddTrainView addTrainView = new AddTrainView(repositories.getTrainRepository());
+            addTrainView.run();
+        });
+
+        router.addOption("Dodaj kurs", () -> {
+            AddCourseView addCourseView = new AddCourseView(repositories);
+            addCourseView.run();
+        });
 
         while(true) {
             boolean shouldStay = router.run();
