@@ -5,12 +5,12 @@ import repository.PersonRepository;
 
 import java.util.Scanner;
 
-public class RegisterationView {
+public class RegistrationView {
 
     private Scanner scanner = new Scanner(System.in);
     private PersonRepository personRepository;
 
-    public RegisterationView(PersonRepository personRepository) {
+    public RegistrationView(PersonRepository personRepository) {
         this.personRepository = personRepository;
     }
 

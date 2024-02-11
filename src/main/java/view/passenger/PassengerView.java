@@ -44,8 +44,8 @@ public class PassengerView {
             // TODO: logowanie
         }
         else if(choice.equals("2")) {
-            RegisterationView registerationView = new RegisterationView(personRepository);
-            loggedPassenger = registerationView.run();
+            RegistrationView registrationView = new RegistrationView(personRepository);
+            loggedPassenger = registrationView.run();
         }
         else if(choice.equals("3")) {
             return false;
