@@ -1,6 +1,7 @@
 package view;
 
 import repository.RepositoryCollection;
+import view.conductor.ConductorView;
 import view.passenger.PassengerView;
 import view.planner.CoursePlannerView;
 
@@ -26,7 +27,8 @@ public class MainView {
         });
 
         router.addOption("Konduktor", () -> {
-            // TODO: widok konduktora
+            ConductorView conductorView = new ConductorView(repositories.getTicketRepository());
+            conductorView.run();
         });
 
         while(true) {
