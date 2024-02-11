@@ -5,6 +5,7 @@ import javax.persistence.Persistence;
 
 import entity.Person;
 import repository.PersonRepository;
+import view.passenger.PassengerView;
 
 public class Main {
     public static void main(String[] args) {
@@ -12,13 +13,9 @@ public class Main {
 
         PersonRepository personRepo = new PersonRepository(emf);
 
-        Person p1 = new Person("std@email.com", "Jan", "Zamoyski");
-
-        personRepo.add(p1);
-
-        for(Person p : personRepo.getAll()) {
-            System.out.println(p);
-        }
+        // TODO: możliwość wyboru między widokiem pasażera, konduktora a planisty
+        PassengerView passengerView = new PassengerView(personRepo);
+        passengerView.run();
 
         emf.close();
     }
