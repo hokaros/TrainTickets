@@ -34,6 +34,10 @@ public class CourseStation {
         return station;
     }
 
+    public LocalDateTime getDepartureTime() {
+        return departureTime;
+    }
+
     @Override
     public String toString() {
         return "StacjaKursu{" +

@@ -26,7 +26,7 @@ public class SelectMatchingCourseView extends EntitySelectionView<CourseSubspan>
     @Override
     protected List<CourseSubspan> getAll() {
         // Wybierz te kursy, które posiadają zadaną stację początkową i końcową
-        List<Course> courses = repositories.getCourseRepository().getCoursesWithStations(startStation, endStation);
+        List<Course> courses = repositories.getCourseRepository().getAll();
 
         List<CourseSubspan> courseSubspans = new ArrayList<>();
         for(Course course : courses) {
@@ -41,6 +41,12 @@ public class SelectMatchingCourseView extends EntitySelectionView<CourseSubspan>
                     courseEndStation = courseStation;
                 }
             }
+
+            if(courseStartStation == null || courseEndStation == null)
+                continue;
+
+            if(courseStartStation.getDepartureTime().isAfter(courseEndStation.getDepartureTime()))
+                continue;
 
             CourseSubspan courseSubspan = new CourseSubspan(courseStartStation, courseEndStation);
             courseSubspans.add(courseSubspan);
