@@ -10,10 +10,11 @@ public class CourseStation {
     private long id;
 
     @ManyToOne(cascade = CascadeType.DETACH)
-    private Station station;
+    private Course course;
 
     @ManyToOne(cascade = CascadeType.DETACH)
-    private Course course;
+    private Station station;
+
 
     private LocalDateTime arrivalTime;
     private LocalDateTime departureTime;
@@ -22,9 +23,9 @@ public class CourseStation {
         this(null, null, null, null);
     }
 
-    public CourseStation(Station station, Course course, LocalDateTime arrivalTime, LocalDateTime departureTime) {
-        this.station = station;
+    public CourseStation(Course course, Station station, LocalDateTime arrivalTime, LocalDateTime departureTime) {
         this.course = course;
+        this.station = station;
         this.arrivalTime = arrivalTime;
         this.departureTime = departureTime;
     }
@@ -32,8 +33,8 @@ public class CourseStation {
     @Override
     public String toString() {
         return "StacjaKursu{" +
-                "stacja=" + station +
-                ", kurs=" + course +
+                "kurs=" + course +
+                ", stacja=" + station +
                 ", godzina przyjazdu=" + arrivalTime +
                 ", godzina odjazdu=" + departureTime +
                 '}';

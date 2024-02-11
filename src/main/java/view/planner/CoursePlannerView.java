@@ -31,6 +31,11 @@ public class CoursePlannerView {
             addCourseView.run();
         });
 
+        router.addOption("Dodaj stację kursu", () -> {
+            AddCourseStationView addCourseStationView = new AddCourseStationView(repositories);
+            addCourseStationView.run();
+        });
+
         while(true) {
             boolean shouldStay = router.run();
 
