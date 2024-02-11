@@ -36,7 +36,8 @@ public class PassengerView {
         ViewRouter viewRouter = new ViewRouter();
 
         viewRouter.addOption("Zaloguj się", () -> {
-            System.out.println("TODO: logowanie"); // TODO: logowanie
+            LoginView loginView = new LoginView(repositories.getPersonRepository());
+            loggedPassenger = loginView.run();
         });
 
         viewRouter.addOption("Zarejestruj się", () -> {
