@@ -23,6 +23,8 @@ public class RegistrationView {
 
         Person person = new Person(email, name, surname);
         personRepository.add(person);
+
+        System.out.println("Zarejestrowano pomyślnie");
         return person;
     }
 

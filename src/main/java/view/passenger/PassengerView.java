@@ -1,19 +1,17 @@
 package view.passenger;
 
 import entity.Person;
-import repository.PersonRepository;
+import repository.RepositoryCollection;
 import view.ViewRouter;
-
-import java.util.Scanner;
 
 public class PassengerView {
 
     private Person loggedPassenger = null;
 
-    private PersonRepository personRepository;
+    private RepositoryCollection repositories;
 
-    public PassengerView(PersonRepository personRepository) {
-        this.personRepository = personRepository;
+    public PassengerView(RepositoryCollection repositories) {
+        this.repositories = repositories;
     }
 
     public void run() {
@@ -42,7 +40,7 @@ public class PassengerView {
         });
 
         viewRouter.addOption("Zarejestruj się", () -> {
-            RegistrationView registrationView = new RegistrationView(personRepository);
+            RegistrationView registrationView = new RegistrationView(repositories.getPersonRepository());
             loggedPassenger = registrationView.run();
         });
 

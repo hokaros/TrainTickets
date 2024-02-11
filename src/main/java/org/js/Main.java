@@ -3,19 +3,17 @@ package org.js;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
-import entity.Person;
-import repository.PersonRepository;
-import view.passenger.PassengerView;
+import repository.RepositoryCollection;
+import view.MainView;
 
 public class Main {
     public static void main(String[] args) {
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("proBD");
 
-        PersonRepository personRepo = new PersonRepository(emf);
+        RepositoryCollection repositories = new RepositoryCollection(emf);
 
-        // TODO: możliwość wyboru między widokiem pasażera, konduktora a planisty
-        PassengerView passengerView = new PassengerView(personRepo);
-        passengerView.run();
+        MainView view = new MainView(repositories);
+        view.run();
 
         emf.close();
     }
