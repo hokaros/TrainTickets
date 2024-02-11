@@ -52,11 +52,13 @@ public class PassengerView {
         ViewRouter viewRouter = new ViewRouter();
 
         viewRouter.addOption("Moje bilety", () -> {
-            System.out.println("TODO: moje bilety"); // TODO: moje bilety
+            MyTicketsView myTicketsView = new MyTicketsView(loggedPassenger, repositories.getTicketRepository());
+            myTicketsView.run();
         });
 
-        viewRouter.addOption("Szukaj kursu", () -> {
-            System.out.println("TODO: szukaj kursu"); // TODO: szukaj kursu
+        viewRouter.addOption("Kup bilet", () -> {
+            BuyTicketView buyTicketView = new BuyTicketView(loggedPassenger, repositories);
+            buyTicketView.run();
         });
 
         return viewRouter.run();

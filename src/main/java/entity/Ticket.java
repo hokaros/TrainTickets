@@ -8,7 +8,7 @@ public class Ticket {
     @GeneratedValue
     private long id;
 
-    @ManyToOne(cascade = CascadeType.DETACH)
+    @ManyToOne(cascade = CascadeType.ALL)
     private CourseSubspan courseSubspan;
 
     @ManyToOne(cascade = CascadeType.DETACH)

@@ -23,6 +23,10 @@ public class Course {
         this.train = null;
     }
 
+    public List<CourseStation> getStations() {
+        return stations;
+    }
+
     @Override
     public String toString() {
         return "Kurs{Pociąg: " + train + ", id: " + id + "}";

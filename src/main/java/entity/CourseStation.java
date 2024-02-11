@@ -30,6 +30,10 @@ public class CourseStation {
         this.departureTime = departureTime;
     }
 
+    public Station getStation() {
+        return station;
+    }
+
     @Override
     public String toString() {
         return "StacjaKursu{" +

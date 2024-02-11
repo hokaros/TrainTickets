@@ -7,7 +7,7 @@ import java.util.List;
 
 public abstract class JpaRepository<E, K> {
     private final EntityManagerFactory emf;
-    private final Class<E> clazz;
+    protected final Class<E> clazz;
 
     public JpaRepository(EntityManagerFactory emf, Class<E> clazz) {
         this.emf = emf;

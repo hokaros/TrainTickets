@@ -1,4 +1,4 @@
-package view.planner;
+package view;
 
 import entity.Station;
 import repository.StationRepository;

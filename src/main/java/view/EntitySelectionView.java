@@ -19,7 +19,7 @@ public abstract class EntitySelectionView<E> {
     protected abstract void printTitle();
     protected abstract List<E> getAll();
 
-    private void printOptions(List<E> options) {
+    protected void printOptions(List<E> options) {
         int i = 1;
         for(E entity : options) {
             System.out.println(i + ". " + entity);
@@ -27,7 +27,7 @@ public abstract class EntitySelectionView<E> {
         }
     }
 
-    private int promptChoice(int optionsCount) {
+    protected int promptChoice(int optionsCount) {
         Scanner scanner = new Scanner(System.in);
         String choice = scanner.nextLine();
 
