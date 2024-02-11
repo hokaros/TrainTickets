@@ -21,7 +21,17 @@ public class AddCourseStationView {
         System.out.println("\n\n<<Nowa stacja kursu>>");
 
         Course course = promptCourse();
+        if(course == null) {
+            System.out.println("* Anulowano *");
+            return null;
+        }
+
         Station station = promptStation();
+        if(station == null) {
+            System.out.println("* Anulowano *");
+            return null;
+        }
+
         LocalDateTime arrivalTime = promptArrivalTime();
         LocalDateTime departureTime = promptDepartureTime();
 

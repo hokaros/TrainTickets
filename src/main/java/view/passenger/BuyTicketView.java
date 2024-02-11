@@ -22,6 +22,10 @@ public class BuyTicketView {
         Station endStation = promptEndStation();
 
         CourseSubspan courseSubspan = promptCourse(startStation, endStation);
+        if(courseSubspan == null) {
+            System.out.println("* Anulowano *");
+            return null;
+        }
 
         Ticket ticket = new Ticket(courseSubspan, user);
         repositories.getTicketRepository().add(ticket);
