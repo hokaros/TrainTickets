@@ -21,6 +21,10 @@ public class AddCourseView {
         System.out.println("\n\n<<Nowy kurs>>");
 
         Train train = promptTrain();
+        if(train == null) {
+            System.out.println("Anulowano");
+            return null;
+        }
 
         Course course = new Course(train);
         repositories.getCourseRepository().add(course);

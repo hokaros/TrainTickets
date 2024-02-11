@@ -17,6 +17,14 @@ public class Station {
     }
 
     @Override
+    public boolean equals(Object obj) {
+        if(obj instanceof Station)
+            return this.name.equals(((Station) obj).name);
+
+        return super.equals(obj);
+    }
+
+    @Override
     public String toString() {
         return "Stacja{" + name + "}";
     }
