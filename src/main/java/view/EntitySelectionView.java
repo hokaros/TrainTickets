@@ -12,6 +12,8 @@ public abstract class EntitySelectionView<E> {
         printOptions(options);
 
         int selectedNum = promptChoice(options.size());
+        if(selectedNum == 0)
+            return null;
 
         return options.get(selectedNum - 1);
     }
@@ -25,6 +27,8 @@ public abstract class EntitySelectionView<E> {
             System.out.println(i + ". " + entity);
             i++;
         }
+
+        System.out.println( i+ ". Anuluj");
     }
 
     protected int promptChoice(int optionsCount) {
@@ -35,7 +39,10 @@ public abstract class EntitySelectionView<E> {
             try {
                 int chosenOptionNumber = Integer.parseInt(choice);
 
-                if(chosenOptionNumber >= 1 && chosenOptionNumber <= optionsCount) {
+                if(chosenOptionNumber == optionsCount + 1) {
+                    return 0;
+                }
+                else if(chosenOptionNumber >= 1 && chosenOptionNumber <= optionsCount) {
                     return chosenOptionNumber;
                 }
                 else {
